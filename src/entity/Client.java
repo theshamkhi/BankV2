@@ -1,5 +1,3 @@
 package entity;
 
-public record Client() {
-
-}
+public record Client(String nom, String email) {}
