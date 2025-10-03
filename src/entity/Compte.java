@@ -15,24 +15,12 @@ public sealed abstract class Compte permits CompteCourant, CompteEpargne {
         return code;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public double getSolde() {
         return solde;
     }
 
-    public void setSolde(double solde) {
-        this.solde = solde;
-    }
-
     public int getIdClient() {
         return idClient;
-    }
-
-    public void setIdClient(int idClient) {
-        this.idClient = idClient;
     }
 
 }

@@ -11,8 +11,4 @@ public final class CompteEpargne extends Compte {
     public double getTauxInteret() {
         return tauxInteret;
     }
-
-    public void setTauxInteret(double tauxInteret) {
-        this.tauxInteret = tauxInteret;
-    }
 }
