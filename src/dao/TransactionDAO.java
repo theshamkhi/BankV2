@@ -14,7 +14,7 @@ public class TransactionDAO {
     }
 
     public void save(Transaction transaction) throws SQLException {
-        String sql = "INSERT INTO transaction (date, montant, type, lieu, id_compte) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO transaction (date, montant, type, lieu, id_compte) VALUES (?, ?, ?::type_transaction, ?, ?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
             stmt.setTimestamp(1, Timestamp.valueOf(transaction.date()));
@@ -56,7 +56,7 @@ public class TransactionDAO {
     }
 
     public List<Transaction> findByType(TypeTransaction type) throws SQLException {
-        String sql = "SELECT * FROM transaction WHERE type = ? ORDER BY date DESC";
+        String sql = "SELECT * FROM transaction WHERE type = ?::type_transaction ORDER BY date DESC";
         List<Transaction> transactions = new ArrayList<>();
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
